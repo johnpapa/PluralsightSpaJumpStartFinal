@@ -1,21 +1,17 @@
-﻿define(function(require) {
-    var system = require('./system'),
-        viewEngine = require('./viewEngine'),
-        composition = require('./composition'),
-        widget = require('./widget'), //loads the widget handler
-        modalDialog = require('./modalDialog'),
-        Events = require('./events');
-
-    var MessageBox,
-        defaultTitle = 'Application';
+﻿define(['./system', './viewEngine', './composition', './widget', './modalDialog', './events'], 
+    function(system, viewEngine, composition, widget, modalDialog, Events) {
 
     var app = {
-        title: defaultTitle,
+        title: 'Application',
         showModal: function(obj, activationData, context) {
             return modalDialog.show(obj, activationData, context);
         },
         showMessage: function(message, title, options) {
-            return modalDialog.show(new MessageBox(message, title, options));
+            return modalDialog.show('./messageBox', {
+                message: message,
+                title: title || this.title,
+                options: options
+            });
         },
         start: function() {
             var that = this;
@@ -26,12 +22,8 @@
             return system.defer(function (dfd) {
                 $(function() {
                     system.log('Starting Application');
-                    system.acquire('./messageBox').then(function (mb) {
-                        MessageBox = mb;
-                        MessageBox.defaultTitle = that.title || defaultTitle;
-                        dfd.resolve();
-                        system.log('Started Application');
-                    });
+                    dfd.resolve();
+                    system.log('Started Application');
                 });
             }).promise();
         },
@@ -57,11 +49,9 @@
             composition.compose(hostElement, settings);
         },
         adaptToDevice: function() {
-            if (document.body.ontouchmove) {
-                document.body.ontouchmove = function(event) {
-                    event.preventDefault();
-                };
-            }
+            document.ontouchmove = function (event) {
+                event.preventDefault();
+            };
         }
     };
 

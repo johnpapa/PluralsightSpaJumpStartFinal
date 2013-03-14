@@ -209,6 +209,8 @@
     <Content Include="content\font\fontawesome-webfont.ttf" />
     <Content Include="content\font\fontawesome-webfont.eot" />
     <Content Include="content\font\FontAwesome.otf" />
+    <None Include="Properties\PublishProfiles\papademo - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\papademo - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.9.1-vsdoc.js" />
     <None Include="Scripts\breeze.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
