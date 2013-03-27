@@ -87,16 +87,18 @@
                 var title = 'Do you want to leave "' +
                     session().title() + '" ?';
                 var msg = 'Navigate away and cancel your changes?';
-                var checkAnswer = function(selectedOption) {
-                    if (selectedOption === 'Yes') {
-                        cancel();
-                    }
-                    return selectedOption;
-                };
+                
                 return app.showMessage(title, msg, ['Yes', 'No'])
                     .then(checkAnswer);
             }
             return true;
+
+            function checkAnswer(selectedOption) {
+                if (selectedOption === 'Yes') {
+                    cancel();
+                }
+                return selectedOption;
+            }
         };
 
         var vm = {
