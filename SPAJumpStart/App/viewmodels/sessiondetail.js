@@ -87,16 +87,14 @@
                 var title = 'Do you want to leave "' +
                     session().title() + '" ?';
                 var msg = 'Navigate away and cancel your changes?';
-                return app.showMessage(title, msg, ['Yes', 'No'])
-                    .then(confirm);
-                
-                function confirm(selectedOption)
-                {
+                var checkAnswer = function(selectedOption) {
                     if (selectedOption === 'Yes') {
                         cancel();
                     }
                     return selectedOption;
-                }
+                };
+                return app.showMessage(title, msg, ['Yes', 'No'])
+                    .then(checkAnswer);
             }
             return true;
         };
