@@ -59,23 +59,23 @@
                 if (selectedOption === 'Yes') {
                     session().entityAspect.setDeleted();
                     save().then(success).fail(failed).fin(finish);
-                    
-                    function success() {
-                        router.navigateTo('#/sessions');
-                    }
-                    
-                    function failed(error) {
-                        cancel();
-                        var errorMsg = 'Error: ' + error.message;
-                        logger.logError(
-                            errorMsg, error, system.getModuleId(vm), true);
-                    }
-                    
-                    function finish() {
-                        return selectedOption;
-                    }
                 }
                 isDeleting(false);
+
+                function success() {
+                    router.navigateTo('#/sessions');
+                }
+
+                function failed(error) {
+                    cancel();
+                    var errorMsg = 'Error: ' + error.message;
+                    logger.logError(
+                        errorMsg, error, system.getModuleId(vm), true);
+                }
+
+                function finish() {
+                    return selectedOption;
+                }
             }
             
         };

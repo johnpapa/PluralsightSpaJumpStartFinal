@@ -103,7 +103,7 @@
         person.imageName = ko.computed(function () {
             return makeImageName(person.imageSource());
         });
-    };
+    }
     
     function timeSlotInitializer(timeSlot) {
         timeSlot.name = ko.computed(function () {
