@@ -145,6 +145,7 @@
     <Content Include="App\durandal\modalDialog.js" />
     <Content Include="App\durandal\plugins\router.js" />
     <Content Include="App\durandal\system.js" />
+    <Content Include="App\durandal\transitions\entrance.js" />
     <Content Include="App\durandal\viewEngine.js" />
     <Content Include="App\durandal\viewLocator.js" />
     <Content Include="App\durandal\viewModel.js" />
