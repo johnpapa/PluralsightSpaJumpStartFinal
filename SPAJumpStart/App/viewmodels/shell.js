@@ -1,4 +1,8 @@
-﻿define(['durandal/system', 'services/logger', 'durandal/plugins/router', 'config', 'services/datacontext'],
+﻿define(['durandal/system',
+        'services/logger',
+        'durandal/plugins/router',
+        'config',
+        'services/datacontext'],
     function (system, logger, router, config, datacontext) {
 
         var adminRoutes = ko.computed(function() {
