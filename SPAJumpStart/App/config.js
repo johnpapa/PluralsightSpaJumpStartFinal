@@ -14,25 +14,28 @@
         moduleId: 'viewmodels/sessions',
         name: 'Sessions',
         visible: true,
-        caption: '<i class="icon-book"></i> Sessions'
-    }, {
+        caption: 'Sessions',
+        settings: { caption: '<i class="icon-book"></i> Sessions' }
+        }, {
         url: 'speakers',
         moduleId: 'viewmodels/speakers',
         name: 'Speakers',
+        caption: 'Speakers',
         visible: true,
-        caption: '<i class="icon-user"></i> Speakers'
-    }, {
+        settings: { caption: '<i class="icon-user"></i> Speakers' }
+        }, {
         url: 'sessiondetail/:id',
         moduleId: 'viewmodels/sessiondetail',
         name: 'Edit Session',
+        caption: 'Edit Session',
         visible: false
     }, {
         url: 'sessionadd',
         moduleId: 'viewmodels/sessionadd',
         name: 'Add Session',
         visible: false,
-        caption: '<i class="icon-plus"></i> Add Session',
-        settings: {admin: true}
+        caption: 'Add Session',
+        settings: { admin: true, caption: '<i class="icon-plus"></i> Add Session' }
     }];
     
     var startModule = 'sessions';
