@@ -7,7 +7,7 @@
         unknownPersonImageSource: 'unknown_person.jpg'
     };
 
-    var remoteServiceName = 'api/Breeze';
+    var remoteServiceName = 'breeze/Breeze';
 
     var routes = [{
         url: 'sessions',
