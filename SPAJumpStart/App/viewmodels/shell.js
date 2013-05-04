@@ -1,9 +1,10 @@
 ﻿define(['durandal/system',
         'services/logger',
         'durandal/plugins/router',
+        'durandal/app',
         'config',
         'services/datacontext'],
-    function (system, logger, router, config, datacontext) {
+    function (system, logger, router, app, config, datacontext) {
 
         var adminRoutes = ko.computed(function() {
             return router.allRoutes().filter(function(r) {
@@ -20,6 +21,7 @@
         return shell;
 
         function activate() {
+            app.title = config.appTitle;
             return datacontext.primeData()
                 .then(boot)
                 .fail(failedInitialization);
