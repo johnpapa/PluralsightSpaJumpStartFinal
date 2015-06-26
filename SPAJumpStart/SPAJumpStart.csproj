@@ -244,6 +244,7 @@
     <Content Include="Scripts\knockout-2.2.1.js">
       <DependentUpon>knockout-2.2.1.debug.js</DependentUpon>
     </Content>
+    <Content Include="Scripts\knockout-customBindings.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\moment.js" />
     <Content Include="Scripts\moment.min.js">
