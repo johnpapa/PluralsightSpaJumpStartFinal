@@ -1,4 +1,5 @@
-﻿ko.bindingHandlers.fadeVisible = {
+﻿//fadeVisible: <div data-bind="fadeVisible: shouldDisplay() == true, fadeDuration: 500"></div>
+ko.bindingHandlers.fadeVisible = {
     init: function (element, valueAccessor) {
         var shouldDisplay = valueAccessor();
         $(element).toggle(shouldDisplay);

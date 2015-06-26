@@ -26,5 +26,12 @@ namespace WebScratchPad.Controllers
 
             return View();
         }
+
+        public ActionResult TypeaHead()
+        {
+            ViewBag.Message = "TypeaHead example";
+
+            return View();
+        }
     }
 }

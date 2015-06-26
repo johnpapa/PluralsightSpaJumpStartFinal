@@ -1,0 +1,59 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script type="text/javascript" src="/Scripts/jquery-2.1.4.js"></script>
+<script type="text/javascript" src="/Scripts/typeahead.jquery.js"></script>
+<script type="text/javascript" src="/Scripts/typeahead.bundle.js"></script>
+
+<style type="text/css">
+    #movieEntry .empty-message {
+        padding: 5px 10px;
+        text-align: center;
+    }
+</style>
+
+<div class="row">
+    <h1>Knockout TypeaHead</h1>
+    <span id="movieEntry">
+        <input type="text" class="typeahead" placeholder="Search Movie..." autocomplete="off" />
+    </span>
+
+</div>
+
+@section scripts {
+    <script>
+        $(document).ready(function() {
+            var data = ['Iron Man', 'Iron Man 2', 'Iron Man 3', 'Running Man', 'Terminator', 'The Hills Have Ears'];
+
+            var movies = new Bloodhound({
+                datumTokenizer: Bloodhound.tokenizers.whitespace,
+                queryTokenizer: Bloodhound.tokenizers.whitespace,
+                local: data
+            });
+
+            
+        $('#movieEntry .typeahead').typeahead({
+            hint: true,
+            highlight: true,
+            minLength: 1
+        },
+        {
+            name: 'data',
+            source: movies,
+            templates: {
+                empty: [
+                    '<div class="empty-message">',
+                    'unable to find any Best Picture winners that match the current query',
+                    '</div>'
+                ].join('\n'),
+                    suggestion: Handlebars.compile('<div><strong>{{value}}</strong> – {{year}}</div>')
+                }            
+        });
+    });
+
+    </script>
+}
+
+
+
+

@@ -33,11 +33,15 @@
     </div>
 </div>
 
-<button type="button" data-bind="click: toggleText()">Toggle Text</button>
 <div>
-    <span data-bind="fadeVisible: textVisible(), text: exampleText">
+    <button type="button" data-bind="click: toggleText()">Toggle Text</button>
+    <span>
+        <span data-bind="fadeVisible: textVisible(), text: exampleText">
+        </span>
     </span>
 </div>
+@Html.ActionLink("TypeaHead Example", "TypeaHead", null, new { @class = "btn btn-default"})
+
 
 @section scripts {
 <script>
